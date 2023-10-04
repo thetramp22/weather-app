@@ -1,3 +1,12 @@
-import './style.scss';
+import "./style.scss";
+import * as weather from "./modules/weather";
 
-console.log ("how's the weather?");
+const searchLocation = "Carmichael";
+
+async function getWeather(location) {
+  const weatherDataRaw = await weather.getWeatherData(location);
+  const weatherData = weather.processWeatherData(weatherDataRaw);
+  console.log(weatherData);
+}
+
+getWeather(searchLocation);
