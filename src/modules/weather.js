@@ -4,14 +4,43 @@ async function getWeatherData(location) {
     { mode: "cors" },
   );
   const weatherData = await response.json();
+  console.log(weatherData);
   return weatherData;
 }
 
 function processWeatherData(weatherData) {
   const data = {
-    tempC: weatherData.current.temp_c,
-    tempF: weatherData.current.temp_f,
+    current: {
+      tempC: weatherData.current.temp_c,
+      tempF: weatherData.current.temp_f,
+      feelslikeC: weatherData.current.feelslike_c,
+      feelslikeF: weatherData.current.feelslike_f,
+      condition: weatherData.current.condition,
+      windMPH: weatherData.current.wind_mph,
+      windKPH: weatherData.current.wind_kph,
+      windDir: weatherData.current.wind_dir,
+      precipMM: weatherData.current.precip_mm,
+      precipIN: weatherData.current.precip_in,
+      isDay: weatherData.current.is_day,
+    },
+    forecast: {},
+    location: {
+      name: weatherData.location.name,
+      region: weatherData.location.region,
+      localtime: weatherData.location.localtime,
+      country: weatherData.location.country,
+    },
   };
+
+  for (let i = 0; i < weatherData.forecast.forecastday.length; i += 1) {
+    data.forecast[i] = {
+      date: weatherData.forecast.forecastday[i].date,
+      condition: weatherData.forecast.forecastday[i].day.condition,
+      maxTempC: weatherData.forecast.forecastday[i].day.maxtemp_c,
+      maxTempF: weatherData.forecast.forecastday[i].day.maxtemp_f,
+      minTempC: weatherData.forecast.forecastday[i].day.mintemp_c,
+    };
+  }
 
   return data;
 }
