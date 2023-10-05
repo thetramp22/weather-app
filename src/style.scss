@@ -1,16 +1,65 @@
 // VARIABLES
 $bgColor: darkblue;
+$headerBgColor: blue;
 $textColor: #eee;
-// BASE STYLE
+
+// BASE STYLES
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    background-color: $bgColor;
-    color: $textColor;
+  background-color: $bgColor;
+  color: $textColor;
+}
+
+// HEADER
+.header {
+  background-color: $headerBgColor;
+  padding: 10px;
+
+  &__wrapper {
+    margin: 0 auto;
+    display: flex;
+    max-width: 1200px;
+  }
+
+  &__searchbar {
+    font-size: 1rem;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 15px;
+    width: 300px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__search-btn {
+    border: none;
+    border-radius: 50%;
+    padding: 5px;
+    margin-left: 5px;
+    font-size: 1rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__btns {
+    margin-left: auto;
+  }
+
+  &__fc-btn {
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 1rem;
+  }
 }

@@ -4,8 +4,33 @@
     <meta charset="utf-8" />
     <title>Weather App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   <link rel="icon" href="favicon-weather.svg"><script defer src="main.js"></script></head>
   <body>
-    <h1>test</h1>
+    <header class="header">
+      <div class="header__wrapper">
+        <div class="header__search-container">
+          <input
+            type="search"
+            class="header__searchbar"
+            id="searchbar"
+            placeholder="Search for location"
+          />
+          <button class="header__search-btn btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+        <div class="header__btns">
+          <button class="header__fc-btn" id="toggleFCBtn">&deg;F</button>
+        </div>
+      </div>
+    </header>
+    <main></main>
   </body>
 </html>
