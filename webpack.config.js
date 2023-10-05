@@ -17,6 +17,15 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
+        generator: {
+          filename: "[name][ext]",
+          publicPath: "assets/images/",
+          outputPath: "assets/images/",
+        },
+      },
+      {
+        test: /\.html$/,
+        use: ["html-loader"],
       },
     ],
   },
@@ -24,7 +33,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "Weather App",
       template: "./src/template.html",
-      favicon: "/src/images/favicon-weather.svg",
+      favicon: "./src/assets/images/favicon-weather.svg",
     }),
   ],
   output: {

@@ -10,6 +10,7 @@ async function getWeatherData(location) {
 function processWeatherData(weatherData) {
   const data = {
     current: {
+      lastUpdated: weatherData.current.last_updated,
       tempC: weatherData.current.temp_c,
       tempF: weatherData.current.temp_f,
       feelslikeC: weatherData.current.feelslike_c,
