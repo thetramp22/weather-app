@@ -1,7 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+@mixin card-bg {
+  background-color: $mainCardBg;
+  border-radius: 20px;
+  padding: 10px;
+}
+
 // VARIABLES
 $bgColor: darkblue;
 $headerBgColor: blue;
 $textColor: #eee;
+$mainCardBg: rgba(255, 255, 255, 0.2);
 
 $contentWidth: 1200px;
 
@@ -17,6 +26,7 @@ $contentWidth: 1200px;
 html {
   background-color: $bgColor;
   color: $textColor;
+  font-family: "Roboto", sans-serif;
 }
 
 // HEADER
@@ -63,5 +73,68 @@ html {
     border-radius: 5px;
     padding: 5px 10px;
     font-size: 1rem;
+  }
+}
+
+// MAIN
+.main {
+  &__container {
+    max-width: $contentWidth;
+    margin: 0 auto;
+  }
+
+  &__heading {
+    margin: 10px 0;
+  }
+}
+
+.current-weather {
+  @include card-bg();
+
+  &__data {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__condition {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  &__condition-icon {
+    width: 150px;
+  }
+
+  &__temp {
+    font-size: 4rem;
+  }
+
+  &__feelslike {
+    font-size: 1.2rem;
+
+    & p:first-of-type {
+      font: {
+        weight: bold;
+        size: 1.4rem;
+      }
+    }
+  }
+
+  &__other-info {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
+  }
+}
+
+.forecast {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-top: 20px;
+  gap: 20px;
+
+  &__card {
+    @include card-bg();
+    text-align: center;
   }
 }
