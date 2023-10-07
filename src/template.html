@@ -22,7 +22,7 @@
             id="searchbar"
             placeholder="Search for location"
           />
-          <button class="header__search-btn btn">
+          <button class="header__search-btn btn" id="searchBtn">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
@@ -38,36 +38,46 @@
         </div>
         <div class="current-weather">
           <h2 class="current-weather__title">
-            Current weather as of <span id="lastUpdated">10:00AM</span>
+            Current weather as of <span id="lastUpdated">test</span>
           </h2>
           <div class="current-weather__data">
             <div class="current-weather__condition">
               <img
                 src="./assets/images/weather/day/113.png"
                 class="current-weather__condition-icon"
+                id="currentConditionIcon"
               />
-              <p class="current-weather__temp">70<span>&deg;F</span></p>
+              <p class="current-weather__temp" id="currentTemp"></p>
               <div class="current-weather__feelslike">
-                <p>Sunny</p>
-                <p>Feels like <span>70&deg;F</span></p>
+                <p id="currentConditionText">Sunny</p>
+                <p>
+                  Feels like
+                  <span id="feelslike"></span>
+                </p>
               </div>
             </div>
             <div class="current-weather__other-info">
               <div class="current-weather__info-card">
-                <p class="current-weather__card-title">title</p>
-                <p class="current-weather__card-text">text</p>
+                <p class="current-weather__card-title">Wind</p>
+                <div class="line"></div>
+                <p class="current-weather__card-text">
+                  <span id="windSpeed"></span> <span id="windDirection"></span>
+                </p>
               </div>
               <div class="current-weather__info-card">
-                <p class="current-weather__card-title">title</p>
-                <p class="current-weather__card-text">text</p>
+                <p class="current-weather__card-title">Precipitation</p>
+                <div class="line"></div>
+                <p class="current-weather__card-text" id="precip"></p>
               </div>
               <div class="current-weather__info-card">
-                <p class="current-weather__card-title">title</p>
-                <p class="current-weather__card-text">text</p>
+                <p class="current-weather__card-title">Humidity</p>
+                <div class="line"></div>
+                <p class="current-weather__card-text" id="humidity"></p>
               </div>
               <div class="current-weather__info-card">
-                <p class="current-weather__card-title">title</p>
-                <p class="current-weather__card-text">text</p>
+                <p class="current-weather__card-title">UV Index</p>
+                <div class="line"></div>
+                <p class="current-weather__card-text" id="uv"></p>
               </div>
             </div>
           </div>

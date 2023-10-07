@@ -1,12 +1,11 @@
 import "./style.scss";
-import * as weather from "./modules/weather";
+import * as UI from "./modules/UI";
 
 const searchLocation = "Carmichael";
 
-async function getWeather(location) {
-  const weatherDataRaw = await weather.getWeatherData(location);
-  const weatherData = weather.processWeatherData(weatherDataRaw);
-  console.log(weatherData);
+async function loadPage(location) {
+  UI.initializeBtns();
+  UI.updateUI();
 }
 
-getWeather(searchLocation);
+loadPage(searchLocation);

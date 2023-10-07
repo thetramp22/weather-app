@@ -21,6 +21,8 @@ function processWeatherData(weatherData) {
       windDir: weatherData.current.wind_dir,
       precipMM: weatherData.current.precip_mm,
       precipIN: weatherData.current.precip_in,
+      humidity: weatherData.current.humidity,
+      uv: weatherData.current.uv,
       isDay: weatherData.current.is_day,
     },
     forecast: {},
@@ -45,4 +47,9 @@ function processWeatherData(weatherData) {
   return data;
 }
 
-export { getWeatherData, processWeatherData };
+export default async function getWeather(location) {
+  const weatherDataRaw = await getWeatherData(location);
+  const data = processWeatherData(weatherDataRaw);
+
+  return data;
+}
