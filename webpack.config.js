@@ -34,6 +34,7 @@ module.exports = {
       title: "Weather App",
       template: "./src/template.html",
       favicon: "./src/assets/images/favicon-weather.svg",
+      scriptLoading: "module",
     }),
   ],
   output: {
