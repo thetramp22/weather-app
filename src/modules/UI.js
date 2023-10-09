@@ -1,4 +1,4 @@
-import { format } from "date-fns";
+import { format, parseISO, isToday, isTomorrow } from "date-fns";
 import conditionData from "../assets/data/weatherConditionCodes.json";
 import Units from "./units";
 import getWeather from "./weather";
@@ -30,7 +30,9 @@ function getCondition(code, isDay) {
 }
 
 function setTempDisplay(tempC, tempF) {
-  return units.tempUnits === "&deg;F" ? `${tempF}°F` : `${tempC}°C`;
+  return units.tempUnits === "&deg;F"
+    ? `${Math.floor(tempF)}°F`
+    : `${Math.floor(tempC)}°C`;
 }
 
 function setSpeedDisplay(mph, kph) {
@@ -71,6 +73,37 @@ function updateCurrentDisplay(current) {
   uv.textContent = current.uv;
 }
 
+function getForecastDayName(date) {
+  if (isToday(parseISO(date))) return "Today";
+  if (isTomorrow(parseISO(date))) return "Tomorrow";
+  return format(parseISO(date), "EEEE");
+}
+
+function updateForecastDisplay(forecast) {
+  const forecastGrid = document.getElementById("forecastGrid");
+  forecastGrid.innerHTML = "";
+
+  for (let i = 0; i < forecast.length; i += 1) {
+    const dayOfWeek = getForecastDayName(forecast[i].date);
+    const condition = getCondition(forecast[i].condition.code, 1);
+    const maxTemp = setTempDisplay(forecast[i].maxTempC, forecast[i].maxTempF);
+    const minTemp = setTempDisplay(forecast[i].minTempC, forecast[i].minTempF);
+
+    const forecastCard = document.createElement("div");
+    forecastCard.classList.add("forecast__card");
+    forecastCard.innerHTML = `<p class="forecast__day">${dayOfWeek}</p>
+    <div class="forecast__weather">
+      <img
+        src="${condition.icon}"
+        class="forecast__condition-icon"
+      />
+      <p class="forecast__max-temp">High: <span>${maxTemp}</span></p>
+      <p class="forecast__min-temp">Low: <span>${minTemp}</span></p>`;
+
+    forecastGrid.appendChild(forecastCard);
+  }
+}
+
 function searchLocation() {
   const DEFAULT_LOCATION = "Los Angeles";
   const locationToFind = document.getElementById("searchbar").value;
@@ -83,9 +116,17 @@ async function updateUI() {
   const data = await getWeather(searchLocation());
   updateLocationDisplay(data.location);
   updateCurrentDisplay(data.current);
+  updateForecastDisplay(data.forecast);
 }
 
 function toggleUnits() {
+  const btn = document.getElementById("toggleFCBtn");
+  if (units.getTempUnits() === "&deg;F") {
+    btn.innerHTML = "&deg;C";
+  } else {
+    btn.innerHTML = "&deg;F";
+  }
+
   units.toggleUnits();
   updateUI();
 }
@@ -93,9 +134,15 @@ function toggleUnits() {
 function initializeBtns() {
   const searchBtn = document.getElementById("searchBtn");
   const toggleFCBtn = document.getElementById("toggleFCBtn");
+  const searchbar = document.getElementById("searchbar");
 
   searchBtn.addEventListener("click", updateUI);
   toggleFCBtn.addEventListener("click", toggleUnits);
+  searchbar.addEventListener("keyup", (e) => {
+    if (e.key === "Enter") {
+      updateUI();
+    }
+  });
 }
 
 export { updateUI, initializeBtns };

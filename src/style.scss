@@ -99,7 +99,7 @@ html {
   &__condition {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 30px;
   }
 
   &__condition-icon {
@@ -129,7 +129,8 @@ html {
   }
 
   &__info-card {
-    padding: 20px;
+    padding: 0 20px;
+    padding-bottom: 30px;
   }
 
   &__card-title {
@@ -142,7 +143,7 @@ html {
 
 .line {
   border-bottom: solid 1px $textColor;
-  margin: 5px auto;
+  margin: 10px auto;
   width: 80%;
 }
 
@@ -155,5 +156,31 @@ html {
   &__card {
     @include card-bg();
     text-align: center;
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 5px;
+
+  & a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.fa-github {
+  font-size: 24px;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.3);
   }
 }

@@ -25,7 +25,7 @@ function processWeatherData(weatherData) {
       uv: weatherData.current.uv,
       isDay: weatherData.current.is_day,
     },
-    forecast: {},
+    forecast: [],
     location: {
       name: weatherData.location.name,
       region: weatherData.location.region,
@@ -41,6 +41,7 @@ function processWeatherData(weatherData) {
       maxTempC: weatherData.forecast.forecastday[i].day.maxtemp_c,
       maxTempF: weatherData.forecast.forecastday[i].day.maxtemp_f,
       minTempC: weatherData.forecast.forecastday[i].day.mintemp_c,
+      minTempF: weatherData.forecast.forecastday[i].day.mintemp_f,
     };
   }
 

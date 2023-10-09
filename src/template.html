@@ -22,7 +22,7 @@
             id="searchbar"
             placeholder="Search for location"
           />
-          <button class="header__search-btn btn" id="searchBtn">
+          <button type="submit" class="header__search-btn btn" id="searchBtn">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
@@ -82,86 +82,20 @@
             </div>
           </div>
         </div>
-        <div class="forecast">
-          <div class="forecast__card">
-            <p class="forecast__day">Day</p>
-            <div class="forecast__weather">
-              <img
-                src="./assets/images/weather/day/113.png"
-                class="forecast__condition-icon"
-              />
-              <p class="forecast__max-temp">High: <span>70&deg;F</span></p>
-              <p class="forecast__min-temp">Low: <span>69&deg;F</span></p>
-            </div>
-          </div>
-          <div class="forecast__card">
-            <p class="forecast__day">Day</p>
-            <div class="forecast__weather">
-              <img
-                src="./assets/images/weather/day/113.png"
-                class="forecast__condition-icon"
-              />
-              <p class="forecast__max-temp">High: <span>70&deg;F</span></p>
-              <p class="forecast__min-temp">Low: <span>69&deg;F</span></p>
-            </div>
-          </div>
-          <div class="forecast__card">
-            <p class="forecast__day">Day</p>
-            <div class="forecast__weather">
-              <img
-                src="./assets/images/weather/day/113.png"
-                class="forecast__condition-icon"
-              />
-              <p class="forecast__max-temp">High: <span>70&deg;F</span></p>
-              <p class="forecast__min-temp">Low: <span>69&deg;F</span></p>
-            </div>
-          </div>
-          <div class="forecast__card">
-            <p class="forecast__day">Day</p>
-            <div class="forecast__weather">
-              <img
-                src="./assets/images/weather/day/113.png"
-                class="forecast__condition-icon"
-              />
-              <p class="forecast__max-temp">High: <span>70&deg;F</span></p>
-              <p class="forecast__min-temp">Low: <span>69&deg;F</span></p>
-            </div>
-          </div>
-          <div class="forecast__card">
-            <p class="forecast__day">Day</p>
-            <div class="forecast__weather">
-              <img
-                src="./assets/images/weather/day/113.png"
-                class="forecast__condition-icon"
-              />
-              <p class="forecast__max-temp">High: <span>70&deg;F</span></p>
-              <p class="forecast__min-temp">Low: <span>69&deg;F</span></p>
-            </div>
-          </div>
-          <div class="forecast__card">
-            <p class="forecast__day">Day</p>
-            <div class="forecast__weather">
-              <img
-                src="./assets/images/weather/day/113.png"
-                class="forecast__condition-icon"
-              />
-              <p class="forecast__max-temp">High: <span>70&deg;F</span></p>
-              <p class="forecast__min-temp">Low: <span>69&deg;F</span></p>
-            </div>
-          </div>
-          <div class="forecast__card">
-            <p class="forecast__day">Day</p>
-            <div class="forecast__weather">
-              <img
-                src="./assets/images/weather/day/113.png"
-                class="forecast__condition-icon"
-              />
-              <p class="forecast__max-temp">High: <span>70&deg;F</span></p>
-              <p class="forecast__min-temp">Low: <span>69&deg;F</span></p>
-            </div>
-          </div>
-        </div>
+        <div class="forecast" id="forecastGrid"></div>
       </div>
     </main>
+    <footer class="footer">
+      <p>
+        Copyright &copy;
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        Scott Starks
+      </p>
+      <a href="https://github.com/thetramp22" target="_blank">
+        <i class="fa-brands fa-github"></i>
+      </a>
+    </footer>
   </body>
 </html>
