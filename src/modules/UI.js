@@ -4,7 +4,6 @@ import Units from "./units";
 import getWeather from "./weather";
 
 const units = new Units();
-let currentSearchLocation = "Los Angeles";
 
 function updateLocationDisplay(location) {
   const { name, region, country } = location;
@@ -107,7 +106,6 @@ function updateForecastDisplay(forecast) {
 function searchLocation() {
   const DEFAULT_LOCATION = "Los Angeles";
   const locationToFind = document.getElementById("searchbar").value;
-  currentSearchLocation = locationToFind;
   if (!locationToFind) return DEFAULT_LOCATION;
   return locationToFind;
 }
